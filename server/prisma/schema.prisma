@@ -1,0 +1,113 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String       @id @default(uuid())
+  email         String       @unique
+  password      String
+  name          String
+  role          String       @default("STUDENT") // SUPER_ADMIN, INSTITUTION_ADMIN, STUDENT, PUBLIC
+  institutionId String?
+  institution   Institution? @relation(fields: [institutionId], references: [id])
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+}
+
+model Institution {
+  id           String        @id @default(uuid())
+  name         String
+  code         String        @unique
+  logoUrl      String?
+  publicKey    String
+  privateKey   String
+  website      String?
+  isVerified   Boolean       @default(true)
+  users        User[]
+  certificates Certificate[]
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+}
+
+model Certificate {
+  id              String            @id @default(uuid())
+  certificateId   String            @unique
+  certificateHash  String
+  studentName     String
+  studentId       String?
+  course          String
+  grade           String?
+  issueDate       String
+  institutionId   String
+  institution     Institution       @relation(fields: [institutionId], references: [id])
+  pdfUrl          String?
+  status          String            @default("ACTIVE") // ACTIVE, REVOKED
+  transactionId   String?
+  blockNumber     Int?
+  revocation      Revocation?
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime          @updatedAt
+}
+
+model BlockchainBlock {
+  id               String        @id @default(uuid())
+  index            Int           @unique
+  timestamp        String
+  previousHash     String
+  hash             String        @unique
+  merkleRoot       String
+  issuerId         String
+  issuerName       String
+  digitalSignature String
+  nonce            Int           @default(0)
+  transactions     Transaction[]
+  createdAt        DateTime      @default(now())
+}
+
+model Transaction {
+  id                   String           @id @default(uuid())
+  transactionId        String           @unique
+  certificateId        String
+  certificateHash      String
+  studentName          String
+  course               String
+  institutionName      String
+  issueDate            String
+  issuerId             String
+  metadataHash         String
+  timestamp            String
+  digitalSignature     String
+  type                 String           @default("ISSUE") // ISSUE, REVOKE
+  revokedCertificateId String?
+  revocationReason     String?
+  blockNumber          Int
+  blockId              String
+  block                BlockchainBlock  @relation(fields: [blockId], references: [id], onDelete: Cascade)
+  createdAt            DateTime         @default(now())
+}
+
+model Revocation {
+  id            String      @id @default(uuid())
+  certificateId String      @unique
+  certificate   Certificate @relation(fields: [certificateId], references: [certificateId])
+  reason        String
+  revokedBy     String
+  revokedAt     DateTime    @default(now())
+  transactionId String?
+}
+
+model VerificationLog {
+  id            String   @id @default(uuid())
+  certificateId String
+  providedHash  String?
+  isVerified    Boolean
+  status        String
+  ipAddress     String?
+  userAgent     String?
+  verifiedAt    DateTime @default(now())
+}
