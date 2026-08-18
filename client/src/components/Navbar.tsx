@@ -77,7 +77,7 @@ export const Navbar: React.FC = () => {
               className={`px-3.5 py-2 rounded-lg text-sm font-semibold transition-all flex items-center space-x-1.5 bg-gradient-to-r from-emerald-500/20 to-teal-500/20 text-emerald-400 border border-emerald-500/30 hover:border-emerald-400/60`}
             >
               <Play className="w-3.5 h-3.5 fill-emerald-400" />
-              <span>3-Min Demo</span>
+              <span>Live Demo</span>
             </Link>
           </div>
 

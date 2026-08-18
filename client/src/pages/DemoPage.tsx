@@ -62,7 +62,7 @@ export const DemoPage: React.FC = () => {
       <div className="text-center space-y-2">
         <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono font-bold">
           <Zap className="w-4 h-4" />
-          <span>Interactive 3-Minute Interview Presentation</span>
+          <span>Interactive Live System Demonstration</span>
         </div>
         <h1 className="text-4xl font-extrabold text-white">
           CertiChain Live Demonstration

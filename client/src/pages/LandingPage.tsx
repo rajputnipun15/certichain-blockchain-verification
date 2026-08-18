@@ -90,7 +90,7 @@ export const LandingPage: React.FC = () => {
               className="w-full sm:w-auto px-6 py-4 rounded-xl bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 font-bold border border-emerald-500/30 transition-all flex items-center justify-center space-x-2 text-base"
             >
               <Zap className="w-5 h-5 text-emerald-400" />
-              <span>3-Min Interview Demo</span>
+              <span>Live Interactive Demo</span>
             </Link>
           </motion.div>
 

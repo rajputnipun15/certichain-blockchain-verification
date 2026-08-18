@@ -23,7 +23,7 @@
 - **Public Verification Portal (`/verify`, `/verify/:id`)**: Instant sub-100ms cryptographic verification via Certificate ID, PDF file upload (Web Crypto API SHA-256 hashing), or QR code scanning.
 - **Tamper Detection Security Lab (`/security-lab`)**: Educational laboratory allowing real-time modification of student data to showcase SHA-256 hash divergence (`❌ HASH MISMATCH`).
 - **Interactive Merkle Tree Visualizer (`/merkle-tree`)**: Clickable path inspector tracing leaf transactions through intermediate hashes to the block Merkle Root.
-- **3-Minute Interview Presentation Demo (`/demo`)**: 1-click guided walkthrough designed for live technical portfolio presentations.
+- **Interactive Guided Demo (`/demo`)**: 1-click guided walkthrough demonstrating full issuance, hashing, block anchoring, and verification.
 - **Institution Dashboard (`/dashboard/institution`)**: Issue digital credentials, generate PDF certificates with embedded QR codes, view node analytics, and anchor immutable revocation transactions.
 - **Student Holder Wallet (`/dashboard/student`)**: View credential wallet, download official PDFs, copy verification links, and view QR codes.
 
