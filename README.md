@@ -114,10 +114,6 @@ Test Files  2 passed (2)
 - [Security Model](docs/SECURITY.md)
 - [API Reference](docs/API.md)
 - [Production Deployment Guide](docs/DEPLOYMENT.md)
-- [Interview Presentation Guide](docs/INTERVIEW_GUIDE.md)
-- [Resume Bullet Points](docs/RESUME.md)
-- [20 Technical Interview Q&A](docs/INTERVIEW_QUESTIONS.md)
-
 ---
 
 ## 🔑 Demo Login Credentials
