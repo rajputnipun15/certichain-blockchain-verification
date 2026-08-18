@@ -51,7 +51,7 @@ graph TD
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/certichain.git
+git clone https://github.com/rajputnipun15/certichain.git
 cd certichain
 
 # Install dependencies for server and client
